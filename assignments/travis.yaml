@@ -1,0 +1,32 @@
+language: python
+python:
+  - "3.11"  # Use the development version of Python 3.8
+
+env:
+  - DJANGO_SETTINGS_MODULE="assignments.settings"
+
+install:
+  - pip install -r requirements.txt
+
+
+script:
+  - black --check .
+  - flake8 .
+  - python manage.py migrate
+  - python manage.py test
+  - coverage run manage.py test  # Run tests with coverage
+  - coverage report  # Generate coverage report
+after_success:
+  - coveralls
+
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: "us-east-1"
+  app: "pollAssignment"
+  env: "polls-env"
+  bucket_name: "elasticbeanstalk-us-east-1-905418350242"
+  on:
+    branch: develop  # Deploy only from the main branch
