@@ -29,4 +29,4 @@ deploy:
   env: "polls-env"
   bucket_name: "elasticbeanstalk-us-east-1-905418350242"
   on:
-    branch: develop  # Deploy only from the main branch
+    branch: main
