@@ -6,7 +6,7 @@ env:
   - DJANGO_SETTINGS_MODULE="assignments.settings"
 
 install:
-  - pip install -r assignments.requirements.txt
+  - pip install -r assignments/requirements.txt
 
 
 script:
