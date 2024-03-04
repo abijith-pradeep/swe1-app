@@ -12,9 +12,9 @@ install:
 script:
   - black --check .
   - flake8 .
-  - python manage.py migrate
-  - python manage.py test
-  - coverage run manage.py test  # Run tests with coverage
+  - python assignments/manage.py migrate
+  - python assignments/manage.py test
+  - coverage run assignments/manage.py test  # Run tests with coverage
   - coverage report  # Generate coverage report
 after_success:
   - coveralls
