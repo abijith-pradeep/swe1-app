@@ -8,6 +8,8 @@ env:
 install:
   - pip install -r assignments/requirements.txt
 
+before_script:
+  - black assignments/ --quiet
 
 script:
   - black --check .

@@ -4,6 +4,7 @@ from django.urls import reverse
 from .models import Question, Choice
 from django.views import generic
 
+
 class IndexView(generic.ListView):
     template_name = 'ap8246_polls/index.html'
     context_object_name = 'latest_question_list'
