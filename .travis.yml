@@ -16,16 +16,19 @@ script:
   - flake8 .
   - python assignments/manage.py migrate
   - python assignments/manage.py test
+  - python assignments/manage.py runserver
   - coverage run assignments/manage.py test  # Run tests with coverage
   - coverage report  # Generate coverage report
+
 after_success:
   - coveralls
 
-
 deploy:
   provider: elasticbeanstalk
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
   region: "us-east-1"
   app: "pollAssignment"
   env: "polls-env"
