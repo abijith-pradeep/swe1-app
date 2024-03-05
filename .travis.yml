@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.8"  # Use the development version of Python 3.8
+  - "3.8"  
 
 env:
   - DJANGO_SETTINGS_MODULE="assignments.settings"
@@ -24,8 +24,8 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  deploy.access_key_id: $AWS_ACCESS_KEY_ID
-  deploy.secret_access_key: $AWS_SECRET_ACCESS_KEY
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
   region: "us-east-1"
   app: "pollAssignment"
   env: "polls-env"
